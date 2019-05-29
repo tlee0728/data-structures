@@ -7,23 +7,22 @@ var Stack = function() {
 };
 
 Stack.prototype.push = function(value) {
-	this.storage[this.sizeStack] = value;
-	this.sizeStack += 1;
-}
+  this.storage[this.sizeStack] = value;
+  this.sizeStack += 1;
+};
 
 Stack.prototype.pop = function() {
-	if (this.sizeStack === 0) {
-		return;
-	}
+  if (this.sizeStack === 0) {
+    return;
+  }
 
-	var toReturn = this.storage[this.sizeStack - 1];
-	delete this.storage[this.sizeStack - 1];
-	this.sizeStack -= 1;
+  var toReturn = this.storage[this.sizeStack - 1];
+  delete this.storage[this.sizeStack - 1];
+  this.sizeStack -= 1;
 
-	return toReturn;
-}
+  return toReturn;
+};
 
 Stack.prototype.size = function() {
-	return this.sizeStack;
-}
-
+  return this.sizeStack;
+};
