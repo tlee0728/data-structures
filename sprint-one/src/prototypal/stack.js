@@ -13,25 +13,22 @@ var Stack = function() {
 var stackMethods = {};
 
 stackMethods.push = function(value) {
-	this.storage[this.sizeStack] = value;
-	this.sizeStack += 1;
-}
+  this.storage[this.sizeStack] = value;
+  this.sizeStack += 1;
+};
 
 stackMethods.pop = function() {
-	if (this.sizeStack === 0) {
-		return;
-	}
+  if (this.sizeStack === 0) {
+    return;
+  }
 
-	var toReturn = this.storage[this.sizeStack - 1];
-	delete this.storage[this.sizeStack - 1];
-	this.sizeStack -= 1;
+  var toReturn = this.storage[this.sizeStack - 1];
+  delete this.storage[this.sizeStack - 1];
+  this.sizeStack -= 1;
 
-	return toReturn;
-
-}
+  return toReturn;
+};
 
 stackMethods.size = function() {
-	return this.sizeStack;
-}
-
-
+  return this.sizeStack;
+};
