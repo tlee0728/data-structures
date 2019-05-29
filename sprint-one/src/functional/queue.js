@@ -12,13 +12,6 @@ var Queue = function() {
     size += 1;
   };
 
-  /*
-  0 --> 'a'
-  1 --> 'b'
-  2 --> 'c'
-  3 --> 'd'
-  */
-
   someInstance.dequeue = function() {
     if (size === 0) {
       return;
@@ -28,7 +21,7 @@ var Queue = function() {
     size -= 1;
     // shift all the keys down by 1 using for loop
     for (var i = 0; i < size; i++) {
-      storage[i] = storage[i+1];
+      storage[i] = storage[i + 1];
     }
 
     return toReturn;
