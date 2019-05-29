@@ -1,35 +1,42 @@
 var Queue = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
-  var storage = {};
-  var size = 0;
+  
+  var newQueue = {};
+  newQueue.storage = {};
+  newQueue.sizeQueue = 0;
 
   // enqueue, dequeue, size
-  queueMethods.enqueue = function(value) {
-  	storage[size] = value;
-  	size += 1;
-  };
+  _.extend(newQueue, queueMethods);
 
-  queueMethods.dequeue = function() {
-  	if (size === 0) {
-  		return;
-  	}
-  	var toReturn = storage[0];
-  	delete storage[0];
-  	size -= 1;
-  	// create for loop to shift all the key values down by 1
-  	for (var i = 0; i < size; i++) {
-  		storage[i] = storage[i + 1];
-  	}
-
-  	return toReturn;
-  };
-
-  queueMethods.size = function() {
-  	return size;
-  };
-
-  return queueMethods;
+  return newQueue;
 };
 
 var queueMethods = {};
+
+// enqueue
+queueMethods.enqueue = function(value) {
+  this.storage[this.sizeQueue] = value;
+  this.sizeQueue += 1;
+};
+
+// dequeue
+queueMethods.dequeue = function() {
+  if (this.sizeQueue === 0) {
+    return;
+  }
+  var toReturn = this.storage[0];
+  delete this.storage[0];
+  this.sizeQueue -= 1;
+  // create for loop to shift all the key values down by 1
+  for (var i = 0; i < this.sizeQueue; i++) {
+    this.storage[i] = this.storage[i + 1];
+  }
+
+  return toReturn;
+};
+
+// size
+queueMethods.size = function() {
+  return this.sizeQueue;
+};
